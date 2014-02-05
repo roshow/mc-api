@@ -1,0 +1,14 @@
+{
+  "name": "mcApi",
+  "description": "A library for making requests to the Marvel Comics API (http://developer.marvel.com) from Node.js. Made by me for PERSONAL fun and use. In other words, this is not an official nor an endorsed Marvel product.",
+  "author": {
+    "name": "roshow",
+    "url": "http://roshow.net"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "request": "*",
+    "promised-io": "*"
+  }
+}
