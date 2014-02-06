@@ -76,7 +76,8 @@ var mcApi = (function(){
             get: get,
             getSubsetFor: getSubsetFor,
             setParams: function(params){
-                setParams.call(this, params);
+                setParams(params);
+                return this;
             }
         };
     }
@@ -91,7 +92,8 @@ var mcApi = (function(){
         gateway = "http://gateway.marvel.com/v1/public/";        
         var mcapi = {
             setPublicKey: function(key){
-                setPublicKey.call(this,key);
+                setPublicKey.(key);
+                return this;
             }
         };
         for (var i = 0; i < collections.length; i++){
