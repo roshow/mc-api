@@ -1,4 +1,4 @@
-#mcApi-browser.js
+#mcApi-browser.js 
 
 A library for making requests to the [Marvel Comics API](http://developer.marvel.com) from a frontend project. Made by me for PERSONAL fun and use. In other words, this is not an official nor an endorsed Marvel product.
 
