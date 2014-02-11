@@ -65,6 +65,22 @@ var mcApi = (function(){
             return new Xhr(url);
         }
 
+        function getRandom(){
+            var deferred = function(){};
+            function complete(func){
+                deferred = func;
+            }
+            var url = gateway + collection + qsWithKeyAndDefaults();
+            var call = new Xhr(url).complete(function(e, r, xhr){
+                var max = r.data.total,
+                    rand = Math.floor(Math.random()*(max-1));
+                    get({offset: rand, limit: 1}).complete(function(e,r,xhr){
+                        deferred(e,r,xhr);
+                    })
+            });
+            return { complete: complete };
+        }
+
         function setParams(params){
             for (key in params){
                 defaultParams[key] = params[key];
@@ -75,6 +91,7 @@ var mcApi = (function(){
         return {
             get: get,
             getSubsetFor: getSubsetFor,
+            getRandom: getRandom,
             setParams: function(params){
                 setParams(params);
                 return this;
@@ -92,7 +109,7 @@ var mcApi = (function(){
         gateway = "http://gateway.marvel.com/v1/public/";        
         var mcapi = {
             setPublicKey: function(key){
-                setPublicKey.(key);
+                setPublicKey(key);
                 return this;
             }
         };
