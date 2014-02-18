@@ -88,7 +88,19 @@ var mcApi = (function(){
             return this;
         }
 
-        return {
+        function getSharedCharacters(ids, params){
+            params = (typeof params === "object" && !_isArray(params)) ? params : {};
+            params.sharedAppearances = ids;
+            return get(params);
+        }
+
+        function getSharedCreators(ids, params){
+            params = (typeof params === "object" && !_isArray(params)) ? params : {};
+            params.collaborators = ids;
+            return get(params);
+        }
+
+        var methods = {
             get: get,
             getSubsetFor: getSubsetFor,
             getRandom: getRandom,
@@ -97,6 +109,13 @@ var mcApi = (function(){
                 return this;
             }
         };
+
+        if (collection === "comics"){
+            methods.getSharedCreators = getSharedCreators;
+            methods.getSharedCharacters = getSharedCharacters;
+        }
+
+        return methods;
     }
 
     function setPublicKey(key){
